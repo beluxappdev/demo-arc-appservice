@@ -31,6 +31,7 @@ az account set --subscription "your-subscription-name/guid"
 az provider register --namespace Microsoft.Kubernetes
 az provider register --namespace Microsoft.KubernetesConfiguration
 az provider register --namespace Microsoft.ExtendedLocation
+az provider register --namespace Microsoft.ExtendedLocation
 ```
 
 ## Check if Providers got activated
@@ -38,7 +39,6 @@ az provider register --namespace Microsoft.ExtendedLocation
 az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 az provider show -n Microsoft.ExtendedLocation -o table
-az provider register --namespace Microsoft.ExtendedLocation
 ```
 
 ## Enable Arc/k8s Extension
@@ -50,10 +50,10 @@ az extension add --name connectedk8s
 ```bash
 az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
+az extension add --upgrade --yes --name appservice-kube
 az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.Web --wait
 az provider register --namespace Microsoft.KubernetesConfiguration --wait
-az extension add --upgrade --yes --name appservice-kube
 ```
 
 # Set Variables
